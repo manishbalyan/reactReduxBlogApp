@@ -1,20 +1,18 @@
 /**
  * Created by manish on 23/6/17.
  */
-import React, {Component,PropTypes} from 'react';
+import React, {Component} from 'react';
 import {reduxForm} from 'redux-form';
 import {createPost} from '../actions/index'
 import {validate} from '../common/errors';
 import {Link} from 'react-router';
+import { browserHistory } from 'react-router';
 
 class PostsNew extends Component{
-    static contextTypes = {
-        router:PropTypes.object
-    }
 
     onSubmit(props){
         this.props.createPost(props).then(()=>{
-            this.context.router.push('/');
+            browserHistory.push('/');
         })
     }
 
